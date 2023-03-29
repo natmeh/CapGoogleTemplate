@@ -20,7 +20,13 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-
+        <p>
+            {{ form.role.label }}<br>
+            {{ form.role() }}<br>
+            {% for error in form.role.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
         <p>
             {{ form.image.label }}<br>
             {% if current_user.image %}
@@ -33,6 +39,20 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+
+        <p>
+            {{ form.image.label }}<br>
+            {% if current_user.image %}
+                <img class="img-thumbnail" width="100" src=""> <br>
+            {% else %}
+                <img class="img-thumbnail" width = "100" src="/static/bdog.png">
+            {% endif %} <br>
+            {{ form.image() }}<br>
+            {% for error in form.image.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
         <p>{{ form.submit() }}</p>
     </form>
 

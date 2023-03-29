@@ -31,6 +31,8 @@ class User(UserMixin, Document):
     email = EmailField()
     image = FileField()
     prononuns = StringField()
+    role = StringField()
+
 
     meta = {
         'ordering': ['lname','fname']
@@ -38,6 +40,7 @@ class User(UserMixin, Document):
     
 class Blog(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    image = FileField()
     subject = StringField()
     content = StringField()
     tag = StringField()
